@@ -1,0 +1,37 @@
+<div >
+    <mat-card class="registrationCard">
+        <mat-card-title class="row threed"
+        style="align-content:center; font-style: italic;font-size: 60vp; font-variant: normal; text-align: center;">
+        <h2>FundooNote Registration</h2>
+    </mat-card-title>
+    <mat-form-field class="content" >
+        <input matInput placeholder="User Name" type="text" >
+    </mat-form-field>
+
+    <mat-form-field class="content" >
+        <input matInput placeholder="Email" type="text" >
+    </mat-form-field>
+
+    <mat-form-field class="content" >
+        <input matInput placeholder="Password" type="password" >
+    </mat-form-field>
+
+    <mat-form-field class="content" >
+        <input matInput placeholder="PhoneNo" type="text" >
+    </mat-form-field>
+
+    <div class="register-button">
+    <mat-card-actions>
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="!registrationForm.valid"
+        >
+          Register
+        </button>
+      </mat-card-actions>
+    </div>
+ 
+</mat-card>
+  </div>
