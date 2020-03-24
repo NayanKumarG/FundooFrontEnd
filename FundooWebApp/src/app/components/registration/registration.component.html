@@ -1,42 +1,49 @@
-<div >
-    <mat-card-content>
-    <mat-card class="registrationCard" layout="row" layout-align="center center">
+
+<div class="register">
+
+<mat-card class="card">
+
     <mat-card-header>
-        <mat-card-title class="title">
-        <h2>FundooNotes Registration</h2>
-    </mat-card-title>
+        
+        <mat-card-title class="title">Registration</mat-card-title>
     </mat-card-header>
-    <form class="register-form">
+
+    <div class="content">
         <mat-card-content>
-    <mat-form-field class="content" >
-        <input matInput placeholder="User Name" type="text" >
-    </mat-form-field>
 
-    <mat-form-field class="content" >
-        <input matInput placeholder="Email" type="text" >
-    </mat-form-field>
+            <mat-form-field appearance="outline" class="label">
+                <mat-label>UserName</mat-label> 
+                  <input matInput placeholder="name" type="text"  >
+              </mat-form-field>
 
-    <mat-form-field class="content" >
-        <input matInput placeholder="Password" type="password" >
-    </mat-form-field>
+              <mat-form-field appearance="outline" class="label">
+                <mat-label>Email</mat-label> 
+                  <input matInput placeholder="email" type="email" >
+              </mat-form-field>
 
-    <mat-form-field class="content" >
-        <input matInput placeholder="PhoneNo" type="text" >
-    </mat-form-field>
-</mat-card-content>
-    <div class="register-button">
-    <mat-card-actions>
-        <button
-          mat-raised-button
-          color="primary"
-          type="submit"
-          [disabled]="!registrationForm.valid"
-        >
-          Register
-        </button>
-      </mat-card-actions>
+              <mat-form-field appearance="outline" class="label">
+                <mat-label>Password</mat-label> 
+                  <input matInput placeholder="password" type="password"  >
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="label">
+                <mat-label>PhoneNo</mat-label> 
+                  <input matInput placeholder="phoneNo" type="text"  >
+              </mat-form-field>
+
+              <mat-card-actions>
+                <button
+                  mat-raised-button
+                  color="primary"
+                  type="submit"
+                >
+                  Register
+                </button>
+            </mat-card-actions>
+
+        </mat-card-content>
     </div>
-</form>
-    </mat-card>
-</mat-card-content>
-  </div>
+</mat-card>
+
+
+    </div>
