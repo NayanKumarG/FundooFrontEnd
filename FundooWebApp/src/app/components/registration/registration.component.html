@@ -13,27 +13,35 @@
 
             <mat-form-field appearance="outline" class="label">
                 <mat-label>UserName</mat-label> 
-                  <input matInput placeholder="name" type="text"  >
+                  <input matInput placeholder="name" type="text" [formControl]="name" >
+                  <mat-error *ngIf="name.invalid">{{getNameErrorMessage()}}</mat-error>
               </mat-form-field>
 
               <mat-form-field appearance="outline" class="label">
                 <mat-label>Email</mat-label> 
-                  <input matInput placeholder="email" type="email" >
+                  <input matInput placeholder="email" type="email" [formControl]="email">
+                  <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
               </mat-form-field>
 
               <mat-form-field appearance="outline" class="label">
                 <mat-label>Password</mat-label> 
-                  <input matInput placeholder="password" type="password"  >
+                  <input matInput placeholder="password" [type]="hide ? 'text' : 'password'" [formControl]="password" >
+                  <button mat-icon-button matSuffix (click)="hide = !hide" >
+                    <mat-icon>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                    </button>
+                  <mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>
               </mat-form-field>
 
               <mat-form-field appearance="outline" class="label">
                 <mat-label>PhoneNo</mat-label> 
-                  <input matInput placeholder="phoneNo" type="text"  >
+                  <input matInput placeholder="phoneNo" type="text" [formControl]="phoneNumber" >
+                  <mat-error *ngIf="phoneNumber.invalid">{{getPhoneNoErrorMessage()}}</mat-error>
               </mat-form-field>
 
               <mat-card-actions>
                 <button
                   mat-raised-button
+                  (click)="onSubmit()"
                   color="primary"
                   type="submit"
                 >
