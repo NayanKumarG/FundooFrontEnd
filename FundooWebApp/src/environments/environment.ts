@@ -4,8 +4,12 @@
 
 export const environment = {
   production: true,
-  userApiURL:'http://localhost:8080/users',
-  registerURL:'/register'
+  
+  userApiUrl:'http://localhost:8080/users',
+  registerUrl:'/register',
+  loginUrl:'/login',
+  forgotPasswordUrl:'/forgotPassword',
+  resetPasswordUrl:'/updatePassword'
 };
 
 /*

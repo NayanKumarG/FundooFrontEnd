@@ -17,16 +17,4 @@ export class HttpService {
 
     return this.http.put(url,body,head);
   }
-
-  public get(url:any){
-
-    return this.http.get(url);
-  }
-
-  public delete(url:any){
-
-    return this.http.delete(url);
-  }
-
-  
 }

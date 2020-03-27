@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormControl} from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
+import {ForgotPassword} from 'src/app/models/forgot-password.model';
 
 
 @Component({
@@ -9,7 +13,9 @@ import { Validators, FormControl} from '@angular/forms';
 })
 export class ForgotPasswordComponent implements OnInit {
 
-  constructor() { }
+  forgotPassword:ForgotPassword = new ForgotPassword();
+
+  constructor(private userService:UserService,private router:Router,private matSnackBar:MatSnackBar) { }
 
 
 
@@ -22,6 +28,23 @@ export class ForgotPasswordComponent implements OnInit {
     return this.email.hasError('required')? "Enter Email Id":
     this.email.hasError('email')? "EmailId not valid":
      "";
+   }
+
+   onSubmit(){
+
+    this.forgotPassword.email = this.email.value;
+     this.userService.userForgotPassword(this.forgotPassword).subscribe(
+
+      (response:any) => {
+        console.log(response.message);
+        this.matSnackBar.open("Check mail to verify", "succesfull", {duration:5000})
+        this.router.navigate(["/login"]);
+     },
+
+     (error:any)=> {
+       this.matSnackBar.open("Invalid mail", "failed", {duration:5000})
+     }
+     );
    }
 
 }

@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormControl} from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
+import { Login} from 'src/app/models/login.model';
+
 
 
 @Component({
@@ -9,13 +14,15 @@ import { Validators, FormControl} from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  login:Login = new Login();
+
+  constructor(private userService:UserService,private router:Router,private matSnackBar:MatSnackBar) { }
 
   ngOnInit() {
   }
 
   email = new FormControl(null,[Validators.required,Validators.email]);
-  password= new FormControl(null,[Validators.required,Validators.minLength(8)]);
+  password= new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z0-9@#$%&]{8,20}')]);
 
   getEmailErrorMessage(){
     return this.email.hasError('required')? "Enter Email Id":
@@ -25,8 +32,30 @@ export class LoginComponent implements OnInit {
 
    getPasswordErrorMessage(){
     return this.password.hasError('required')? "Enter Password":
-    this.password.hasError('minLength')? "minimum 8 characters required":
+    this.password.hasError('pattern')? "minimum 8 characters required":
      "";
    }
+
+onSubmit()
+{
+this.login.email = this.email.value;
+this.login.password = this.password.value;
+
+this.userService.userLogin(this.login).subscribe(
+
+  (response:any) =>{
+console.log("message:"+response.message);
+    
+    this.matSnackBar.open(response.message, "succesfull", {duration:5000})
+  
+ },
+ (error:any)=> {
+   this.matSnackBar.open(error.error.message, "failed", {duration:5000})
+ }
+
+);
+
+
+}
 
 }
