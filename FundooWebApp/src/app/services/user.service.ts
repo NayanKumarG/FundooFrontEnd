@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {environment} from 'src/environments/environment';
 import {HttpService} from './http.service';
-import { HttpHeaders } from '@angular/common/http';
+import {HttpHeaders } from '@angular/common/http';
 import { Observable} from 'rxjs';
 import {User} from 'src/app/models/user.model';
 import {Login} from 'src/app/models/login.model';
@@ -31,6 +31,7 @@ export class UserService {
 
   userLogin(login:Login):Observable<any>
   {
+
      return this.httpService.post(this.userApiUrl+environment.loginUrl,login,this.httpOptions);
   }
 
@@ -39,8 +40,13 @@ export class UserService {
     return this.httpService.post(this.userApiUrl+environment.forgotPasswordUrl,forgotPassword,this.httpOptions);
   }
 
-  userSetPassword(resetPassword:ResetPassword)
+  userSetPassword(resetPassword:ResetPassword , token:String)
   {
-    return this.httpService.put(this.userApiUrl+environment.resetPasswordUrl,resetPassword,this.httpOptions);
+    return this.httpService.put(this.userApiUrl+environment.resetPasswordUrl+token,resetPassword,this.httpOptions);
+  }
+
+  userVerification(token:String)
+  {
+return this.httpService.put(this.userApiUrl+environment.userVerification+token,"" , this.httpOptions);
   }
 }

@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import {ResetPassword} from 'src/app/models/reset-password.model';
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-reset-password',
@@ -14,20 +15,20 @@ export class ResetPasswordComponent implements OnInit {
 
   resetPassword:ResetPassword = new ResetPassword();
 
-  constructor(private userService:UserService,private router:Router,private matSnackBar:MatSnackBar) { }
+  constructor(private userService:UserService,private router:Router,private route:ActivatedRoute,private matSnackBar:MatSnackBar) { }
+
+  token:string;
 
   ngOnInit() {
+    
+    this.token = this.route.snapshot.paramMap.get("token");
   }
 
-  email = new FormControl(null,[Validators.required,Validators.email]);
+  
   password= new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z0-9@#$%&]{8,20}')]);
   confirmPassword= new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z0-9@#$%&]{8,20}')]);
 
-  getEmailErrorMessage(){
-    return this.email.hasError('required')? "Enter Email Id":
-    this.email.hasError('email')? "EmailId not valid":
-     "";
-   }
+
 
    getPasswordErrorMessage(){
     return this.password.hasError('required')? "Enter Password":
@@ -43,21 +44,26 @@ export class ResetPasswordComponent implements OnInit {
 
    onSubmit()
    {
-
-    this.resetPassword.email = this.email.value;
+    if(this.password.value===this.confirmPassword.value){
     this.resetPassword.password = this.password.value;
     this.resetPassword.confirmPassword = this.confirmPassword.value;
-    this.userService.userSetPassword(this.resetPassword).subscribe(
+    this.userService.userSetPassword(this.resetPassword , this.token).subscribe(
       (response:any) =>{
         
+        console.log("token:"+this.token);
          this.matSnackBar.open("Password reset", "success", {duration:5000})
          this.router.navigate(["/login"]);
       },
-      error=> {
+      (error:any)=> {
         this.matSnackBar.open("Check credentials", "failed", {duration:5000})
       }
 
     );
+   }
+   else
+   {
+    this.matSnackBar.open("Password mismatch", "Failed", {duration:5000})
+   }
    }
 
 }

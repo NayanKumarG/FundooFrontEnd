@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormControl} from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import {ForgotPassword} from 'src/app/models/forgot-password.model';
 
@@ -15,7 +14,7 @@ export class ForgotPasswordComponent implements OnInit {
 
   forgotPassword:ForgotPassword = new ForgotPassword();
 
-  constructor(private userService:UserService,private router:Router,private matSnackBar:MatSnackBar) { }
+  constructor(private userService:UserService,private matSnackBar:MatSnackBar) { }
 
 
 
@@ -37,12 +36,13 @@ export class ForgotPasswordComponent implements OnInit {
 
       (response:any) => {
         console.log(response.message);
+        console.log("token:"+response.token);
+        localStorage.setItem('token' , response.token);
         this.matSnackBar.open("Check mail to verify", "succesfull", {duration:5000})
-        this.router.navigate(["/login"]);
      },
 
      (error:any)=> {
-       this.matSnackBar.open("Invalid mail", "failed", {duration:5000})
+       this.matSnackBar.open(error.error.message, " " , {duration:5000})
      }
      );
    }

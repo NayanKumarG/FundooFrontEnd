@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { Login} from 'src/app/models/login.model';
+import { HttpResponse , HttpHeaders } from '@angular/common/http';
 
 
 
@@ -45,8 +46,11 @@ this.userService.userLogin(this.login).subscribe(
 
   (response:any) =>{
 console.log("message:"+response.message);
+console.log("token:"+response.token);
     
-    this.matSnackBar.open(response.message, "succesfull", {duration:5000})
+localStorage.setItem('token' , response.token);
+
+this.matSnackBar.open(response.message , "Success", {duration:5000})
   
  },
  (error:any)=> {

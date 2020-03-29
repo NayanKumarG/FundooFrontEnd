@@ -4,13 +4,15 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { LoginComponent } from './components/login/login.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { UserVerificationComponent } from './components/user-verification/user-verification.component';
 
 const routes: Routes = [
   {path:"registration" , component:RegistrationComponent},
   {path:"" , component:LoginComponent},
   {path:"login" , component:LoginComponent},
   {path:"forgotPassword" , component:ForgotPasswordComponent},
-  {path:"resetPassword" , component:ResetPasswordComponent}
+  {path:"resetPassword/:token" , component:ResetPasswordComponent},
+  {path:"userVerification/:token" , component:UserVerificationComponent}
   
 ];
 

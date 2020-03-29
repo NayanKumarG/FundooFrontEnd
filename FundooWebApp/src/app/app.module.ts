@@ -16,6 +16,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { HttpClientModule } from '@angular/common/http';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { UserVerificationComponent } from './components/user-verification/user-verification.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     RegistrationComponent,
     LoginComponent,
     ForgotPasswordComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    UserVerificationComponent
     
   ],
   imports: [
