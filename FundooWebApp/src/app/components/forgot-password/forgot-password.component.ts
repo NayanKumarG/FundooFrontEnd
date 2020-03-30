@@ -36,8 +36,6 @@ export class ForgotPasswordComponent implements OnInit {
 
       (response:any) => {
         console.log(response.message);
-        console.log("token:"+response.token);
-        localStorage.setItem('token' , response.token);
         this.matSnackBar.open("Check mail to verify", "succesfull", {duration:5000})
      },
 

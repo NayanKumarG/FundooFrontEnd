@@ -51,7 +51,7 @@ export class ResetPasswordComponent implements OnInit {
       (response:any) =>{
         
         console.log("token:"+this.token);
-         this.matSnackBar.open("Password reset", "success", {duration:5000})
+         this.matSnackBar.open("Password reset success", "success", {duration:5000})
          this.router.navigate(["/login"]);
       },
       (error:any)=> {
