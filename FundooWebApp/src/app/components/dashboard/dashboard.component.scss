@@ -1,0 +1,36 @@
+.dashboard{
+
+    display:flex;
+}
+
+.search{
+    border: 1px solid lightgray;
+    border-radius: 7px;
+    width: 650px;
+    margin-left:15%;
+    outline: none;
+    background: #fff;
+      
+  }
+
+  .fundoo-icon{
+      padding-right: 10px;
+  }
+
+  .search-input {
+    border:none;
+    outline: none;
+    height: 40px;
+    width: 500px;
+  
+    }
+
+
+.example-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #eee;
+  }
