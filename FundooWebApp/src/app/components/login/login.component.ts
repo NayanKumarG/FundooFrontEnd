@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
 
 onSubmit()
 {
+  if(this.email.value&&this.password.value!=null){
 this.login.email = this.email.value;
 this.login.password = this.password.value;
 
@@ -51,6 +52,7 @@ console.log("token:"+response.token);
 localStorage.setItem('token' , response.token);
 
 this.matSnackBar.open(response.message , "Success", {duration:5000})
+this.router.navigate(["/dashBoard"]);
   
  },
  (error:any)=> {
@@ -58,7 +60,10 @@ this.matSnackBar.open(response.message , "Success", {duration:5000})
  }
 
 );
-
+  }
+  else{
+    this.matSnackBar.open("enter the fields", "failed", {duration:5000})
+  }
 
 }
 

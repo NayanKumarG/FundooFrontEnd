@@ -1,9 +1,18 @@
-<div clas="dashboard">
+<div class="dashboard">
+    <div>
 <mat-toolbar>
     <mat-toolbar-row>
+
+        <span>
+            <button  mat-icon-button class="menu">
+
+              <mat-icon>menu</mat-icon>
+            </button>
+        </span>
+
         <img class="fundoo-icon" src="https://www.gstatic.com/images/branding/product/1x/keep_48dp.png" srcset="https://www.gstatic.com/images/branding/product/1x/keep_48dp.png 1x, https://www.gstatic.com/images/branding/product/2x/keep_48dp.png 2x " alt="" aria-hidden="true" style="width:40px;height:40px">
             <span>FundooNote</span>
-            
+
             <div class="search">
        
       <button mat-icon-button  class="search-icon">
@@ -12,10 +21,28 @@
       <input type="text" placeholder="Search" class="search-input" >
     </div>
 
+    <div class="rightside-icons">
+        <button mat-icon-button class="refresh">
+          <mat-icon>refresh</mat-icon>
+        </button>
+        <button mat-icon-button class="grid">
+          <mat-icon>grid_view</mat-icon>
+        </button>
+        <button mat-icon-button class="setting">
+          <mat-icon>settings</mat-icon>
+        </button>
+
+      </div>
+
+      <div class="signout">
+        <button  mat-button  (click)="onClick()" color="primary">SignOut</button>
+      </div>
+
     </mat-toolbar-row>
   
 
     </mat-toolbar>
+</div>
 </div>
 <!-- <mat-sidenav-container class="example-container">
     <mat-sidenav mode="side" opened>Sidenav content</mat-sidenav>
