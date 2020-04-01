@@ -15,6 +15,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { HttpClientModule } from '@angular/common/http';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatDividerModule} from '@angular/material/divider';
 
 
 import { LoginComponent } from './components/login/login.component';
@@ -48,9 +51,13 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     MatSnackBarModule,
     HttpClientModule,
     MatSidenavModule,
-    MatToolbarModule
+    MatToolbarModule,
+    FlexLayoutModule,
+    MatTooltipModule,
+    MatDividerModule
 
   ],
+
 
 
   providers: [],
