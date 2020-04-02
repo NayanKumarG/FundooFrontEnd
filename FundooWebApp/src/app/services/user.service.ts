@@ -31,7 +31,7 @@ export class UserService {
 
   userLogin(login:Login):Observable<any>
   {
-
+console.log("user:"+login);
      return this.httpService.post(this.userApiUrl+environment.loginUrl,login,this.httpOptions);
   }
 
