@@ -6,6 +6,7 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { UserVerificationComponent } from './components/user-verification/user-verification.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { CreatenotesComponent } from './components/createnotes/createnotes.component';
 
 const routes: Routes = [
   {path:"registration" , component:RegistrationComponent},
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path:"forgotPassword" , component:ForgotPasswordComponent},
   {path:"resetPassword/:token" , component:ResetPasswordComponent},
   {path:"userVerification/:token" , component:UserVerificationComponent},
-  {path:"dashBoard" , component:DashboardComponent}
+  {path:"dashboard" , component:DashboardComponent},
+  {path:"createnotes" , component:CreatenotesComponent}
   
 ];
 

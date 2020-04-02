@@ -25,6 +25,7 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { UserVerificationComponent } from './components/user-verification/user-verification.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { CreatenotesComponent } from './components/createnotes/createnotes.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     ForgotPasswordComponent,
     ResetPasswordComponent,
     UserVerificationComponent,
-    DashboardComponent
+    DashboardComponent,
+    CreatenotesComponent
     
   ],
   imports: [

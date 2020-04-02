@@ -52,7 +52,7 @@ console.log("token:"+response.token);
 localStorage.setItem('token' , response.token);
 
 this.matSnackBar.open(response.message , "Success", {duration:5000})
-this.router.navigate(["/dashBoard"]);
+this.router.navigate(["/dashboard"]);
   
  },
  (error:any)=> {
