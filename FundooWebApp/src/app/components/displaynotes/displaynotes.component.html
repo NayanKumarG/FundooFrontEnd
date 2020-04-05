@@ -1,0 +1,7 @@
+<div id="container"  fxLayout="column wrap" fxLayout.xs="coloum wrap" >
+    <div fxLayout="{{rowGrid}} wrap" fxLayoutGap="10px" >
+<div *ngFor="let note of notes">
+    <app-note [note]="note"></app-note>
+</div>
+</div>
+</div>
