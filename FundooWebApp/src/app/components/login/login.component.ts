@@ -50,6 +50,7 @@ console.log("message:"+response.message);
 console.log("token:"+response.token);
     
 localStorage.setItem('token' , response.token);
+localStorage.setItem('email' , this.email.value);
 
 this.matSnackBar.open(response.message , "Success", {duration:5000})
 this.router.navigate(["/dashboard"]);

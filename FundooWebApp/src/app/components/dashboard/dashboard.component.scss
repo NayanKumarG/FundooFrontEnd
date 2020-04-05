@@ -139,7 +139,23 @@
         margin-left: 30px;
     }
 
+    .sidenav-content {
+        justify-content: center;
+        width: 100%;
+        align-content: center;
+        height: 100%;
+    }
+    .header{
+        justify-content: center;
+        align-content: center;
 
+    }
+
+    .signout-button{
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
 
 
 

@@ -6,7 +6,7 @@
         <span>
             <button  mat-icon-button (click)="sidenav.toggle()" class="menu">
 
-              <mat-icon>menu</mat-icon>
+              <mat-icon matTooltip="Main menu">menu</mat-icon>
             </button>
         </span>
 
@@ -16,32 +16,53 @@
             <div class="search">
        
       <button mat-icon-button  class="search-icon">
-        <mat-icon>search</mat-icon>
+        <mat-icon matTooltip="search">search</mat-icon>
       </button>
       <input type="text"  placeholder="Search" class="search-input">
-      <!-- <button mat-icon-button matTooltip="Clear Search" class="clear">
+       <!-- <button mat-icon-button matTooltip="Clear Search" class="clear">
         <mat-icon>clear</mat-icon>
       </button> -->
     </div>
 
     <div class="rightside-icons">
         <button mat-icon-button class="refresh">
-          <mat-icon>refresh</mat-icon>
+          <mat-icon matTooltip="Refresh">refresh</mat-icon>
         </button>
         <button mat-icon-button class="grid">
-          <mat-icon>grid_view</mat-icon>
+          <mat-icon matTooltip="Grid view">grid_view</mat-icon>
         </button>
         <button mat-icon-button class="setting">
-          <mat-icon>settings</mat-icon>
+          <mat-icon matTooltip="Settings">settings</mat-icon>
         </button>
 
       </div>
 
-      <div class="signout">
+      <!-- <div class="signout">
         <button  mat-icon-button  (click)="onClick()" matTooltip="SignOut">
             <mat-icon>face</mat-icon>
         </button>
-      </div>
+      </div> -->
+
+      <div class="signout">
+        <button  mat-icon-button  [matMenuTriggerFor]="beforeMenu">
+            <mat-icon matTooltip="Fundoo Account">face</mat-icon>
+        </button>
+        <mat-menu #beforeMenu="matMenu" xPosition="before">
+          <div>
+              <mat-card class="example-card">
+                <div class="header">
+                    <mat-card-header>
+                      <mat-card-title style="margin-left: 55px;">User</mat-card-title>
+                      <mat-card-subtitle>{{getEmail()}}</mat-card-subtitle>
+                    </mat-card-header>
+                  </div>
+                  </mat-card>
+                </div>
+                <div class="signout-button">
+                <button (click)="onClick()" mat-stroked-button color="primary" >Signout</button>
+              </div>
+    </mat-menu>
+</div>
 
     </mat-toolbar-row>
   
@@ -95,6 +116,15 @@
 
 
             </mat-sidenav>
+
+            
+            <mat-sidenav-content class="sidenav-content">
+              <!-- <app-createnotes></app-createnotes> -->
+              <router-outlet ></router-outlet>
+              
+              
+            </mat-sidenav-content>
+
     </mat-sidenav-container>
 
         </div>      

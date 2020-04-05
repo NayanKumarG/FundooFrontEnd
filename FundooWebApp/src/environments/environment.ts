@@ -13,7 +13,8 @@ export const environment = {
   userVerification:'/verifyMail/',
 
   noteApiUrl:'http://localhost:8080/notes',
-  createNoteUrl:'/create'
+  createNoteUrl:'/create',
+  getAllNotesUrl:'/getNotes'
 };
 
 /*

@@ -10,6 +10,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms'
 import {MatIconModule} from '@angular/material/icon';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { HttpClientModule } from '@angular/common/http';
@@ -18,6 +19,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 import { LoginComponent } from './components/login/login.component';
@@ -26,6 +28,9 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
 import { UserVerificationComponent } from './components/user-verification/user-verification.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CreatenotesComponent } from './components/createnotes/createnotes.component';
+import { DisplaynotesComponent } from './components/displaynotes/displaynotes.component';
+
+import { NoteComponent } from './components/note/note.component';
 
 
 @NgModule({
@@ -37,7 +42,9 @@ import { CreatenotesComponent } from './components/createnotes/createnotes.compo
     ResetPasswordComponent,
     UserVerificationComponent,
     DashboardComponent,
-    CreatenotesComponent
+    CreatenotesComponent,
+    DisplaynotesComponent,
+    NoteComponent
     
   ],
   imports: [
@@ -49,6 +56,7 @@ import { CreatenotesComponent } from './components/createnotes/createnotes.compo
     MatCardModule,
     MatButtonModule,
     ReactiveFormsModule,
+    FormsModule,
     MatIconModule,
     MatSnackBarModule,
     HttpClientModule,
@@ -56,7 +64,8 @@ import { CreatenotesComponent } from './components/createnotes/createnotes.compo
     MatToolbarModule,
     FlexLayoutModule,
     MatTooltipModule,
-    MatDividerModule
+    MatDividerModule,
+    MatMenuModule
 
   ],
 

@@ -31,17 +31,24 @@ export class CreatenotesComponent implements OnInit {
 
   onSubmit()
   {
-
+if(this.title.value&&this.description.value!=null)
+{
     this.noteModel.title = this.title.value;
     this.noteModel.description = this.description.value;
     this.noteService.createNote(this.noteModel).subscribe(
 
       (response:any)=>{
-        this.matSnackBar.open("sucess" ,"success" , {duration:5000})
+        console.log("message:"+response.message);
+        this.matSnackBar.open("note created" ,"success" , {duration:5000})
       },
       (error:any)=>{
-        this.matSnackBar.open("failed", "failed", {duration:5000})
+        this.matSnackBar.open("Notes not created", "failed", {duration:5000})
       }
     );
+  }
+
+else{
+  this.matSnackBar.open("Notes not created", "failed", {duration:5000})
+}
   }
 }

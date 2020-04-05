@@ -7,6 +7,8 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
 import { UserVerificationComponent } from './components/user-verification/user-verification.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CreatenotesComponent } from './components/createnotes/createnotes.component';
+import { NoteComponent } from './components/note/note.component';
+import { DisplaynotesComponent } from './components/displaynotes/displaynotes.component';
 
 const routes: Routes = [
   {path:"registration" , component:RegistrationComponent},
@@ -15,8 +17,16 @@ const routes: Routes = [
   {path:"forgotPassword" , component:ForgotPasswordComponent},
   {path:"resetPassword/:token" , component:ResetPasswordComponent},
   {path:"userVerification/:token" , component:UserVerificationComponent},
-  {path:"dashboard" , component:DashboardComponent},
-  {path:"createnotes" , component:CreatenotesComponent}
+  {path:"dashboard" , component:DashboardComponent,
+  children:[{path:'' , component:CreatenotesComponent},
+  // {path:"createnotes" , component:CreatenotesComponent}
+
+  ]
+
+},
+  {path:"createnotes" , component:CreatenotesComponent},
+  {path:"note" , component:NoteComponent},
+  {path:"displaynote" , component:DisplaynotesComponent}
   
 ];
 

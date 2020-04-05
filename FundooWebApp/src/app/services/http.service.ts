@@ -17,4 +17,8 @@ export class HttpService {
 
     return this.http.put(url,body,head);
   }
+
+  public get(url :any,options :any):any{
+    return this.http.get(url,options);
+  }
 }
