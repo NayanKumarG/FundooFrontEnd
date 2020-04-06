@@ -11,7 +11,7 @@
     <mat-card class="note-matcard"  *ngIf="open"  fxLayout="column">
         <textarea matInput type="text" placeholder="Title" [formControl]="title"></textarea>
         <textarea matInput type="text" placeholder="Take a note" [formControl]="description"></textarea>
-        <div class="icons">
+        <div class="icons" style="display:flex;flex-direction: row;align-items: center;">
             <mat-icon matTooltip="Remind me">notifications_none</mat-icon>
             <mat-icon matTooltip="Collaborator">person_add</mat-icon>
             <mat-icon matTooltip="Change color">color_lens</mat-icon>

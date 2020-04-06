@@ -1,10 +1,17 @@
 <div class="container" >
     <div class="mat-display"  >
-        <mat-card>
-            <div *ngIf="!pin">
+        <mat-card [ngStyle]="{ 'background-color': note.color }">
+            <div *ngIf="!note.pinned" class="pin-div">
                 <button mat-icon-button class="pin" >
                   <mat-icon >
-                    <img>
+                    <img src="../../../assets/icons/unpin.png" style="width: 25px;height: 25px;">
+                  </mat-icon>
+                </button>
+              </div>
+              <div *ngIf="note.pinned" class="pin-div">
+                <button mat-icon-button class="pin" >
+                  <mat-icon >
+                    <img src="../../../assets/icons/pinicon.png" style="width: 25px;height: 25px;">
                   </mat-icon>
                 </button>
               </div>

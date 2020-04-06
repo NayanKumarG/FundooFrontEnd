@@ -31,6 +31,14 @@ mat-card{
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    width: 17em;
+    align-items: flex-end;
+    width: 20px;
     visibility: visible;
   }
+  .pin-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+ 

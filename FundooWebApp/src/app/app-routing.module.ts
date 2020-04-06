@@ -19,7 +19,7 @@ const routes: Routes = [
   {path:"userVerification/:token" , component:UserVerificationComponent},
   {path:"dashboard" , component:DashboardComponent,
   children:[{path:"createnotes" , component:CreatenotesComponent},
-  {path:'' , component:DisplaynotesComponent}
+  {path:"" , component:DisplaynotesComponent}
 
   ]
 
