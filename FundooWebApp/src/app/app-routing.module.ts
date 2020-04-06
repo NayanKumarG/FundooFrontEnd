@@ -18,8 +18,8 @@ const routes: Routes = [
   {path:"resetPassword/:token" , component:ResetPasswordComponent},
   {path:"userVerification/:token" , component:UserVerificationComponent},
   {path:"dashboard" , component:DashboardComponent,
-  children:[{path:'' , component:CreatenotesComponent},
-  // {path:"createnotes" , component:CreatenotesComponent}
+  children:[{path:"createnotes" , component:CreatenotesComponent},
+  {path:'' , component:DisplaynotesComponent}
 
   ]
 
