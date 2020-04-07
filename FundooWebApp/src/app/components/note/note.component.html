@@ -32,9 +32,20 @@
                 <button mat-icon-button>
                     <mat-icon matTooltip="Collaborator">person_add</mat-icon>
                 </button>
-                <button mat-icon-button>
+                <button mat-icon-button [matMenuTriggerFor]="menu1">
                     <mat-icon matTooltip="Add color">color_lens</mat-icon>
                 </button >
+                <mat-menu #menu1="matMenu" >
+                    <div *ngFor="let colors of colorsList" fxLayout="row">
+                      <div *ngFor="let color of colors" class="colorsList">
+                        <button [ngStyle]="{ 'background-color': color.colorCode }"
+                            (click)="changeColor(color)"
+                            matTooltip="{{ color.name }}"
+                            mat-mini-fab
+                          ></button>
+                      </div>
+                    </div>
+                  </mat-menu>
                 <button mat-icon-button>
                     <mat-icon matTooltip="Add image">crop_original</mat-icon>
                 </button>
