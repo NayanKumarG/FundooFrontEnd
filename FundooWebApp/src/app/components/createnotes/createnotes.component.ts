@@ -42,7 +42,7 @@ if(this.title.value&&this.description.value!=null)
         this.matSnackBar.open("note created" ,"success" , {duration:5000})
       },
       (error:any)=>{
-        this.matSnackBar.open("Notes not created", "failed", {duration:5000})
+        this.matSnackBar.open("Notes not created", "failed", {duration:3000})
       }
     );
   }

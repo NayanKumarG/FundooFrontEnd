@@ -28,4 +28,10 @@ getEmail()
   return localStorage.getItem('email');
 }
 
+
+refresh() {
+  console.log("reloading");
+window.location.reload();
+}
+
 }
