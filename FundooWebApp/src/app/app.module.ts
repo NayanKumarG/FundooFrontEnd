@@ -31,6 +31,8 @@ import { CreatenotesComponent } from './components/createnotes/createnotes.compo
 import { DisplaynotesComponent } from './components/displaynotes/displaynotes.component';
 
 import { NoteComponent } from './components/note/note.component';
+import { ArchievenoteComponent } from './components/archievenote/archievenote.component';
+import { TrashednoteComponent } from './components/trashednote/trashednote.component';
 
 
 @NgModule({
@@ -44,7 +46,9 @@ import { NoteComponent } from './components/note/note.component';
     DashboardComponent,
     CreatenotesComponent,
     DisplaynotesComponent,
-    NoteComponent
+    NoteComponent,
+    ArchievenoteComponent,
+    TrashednoteComponent
     
   ],
   imports: [

@@ -16,7 +16,10 @@ export class DisplaynotesComponent implements OnInit {
     private noteService:NoteService) { }
 
   token:String;
-  notes: Note[];
+  // notes: Note[];
+  others : Note[];
+  note = new Note();
+  notes = new Array<Note>();
 
   ngOnInit() {
     this.noteService.autoRefresh.subscribe(() => {
@@ -32,6 +35,9 @@ export class DisplaynotesComponent implements OnInit {
         console.log("response", response);
         console.log("notes:",response.object);
         this.notes = response['object'];
+        this.others = [];
+
+        this.notes.filter(note=>note.pinned===false&&note.archieved===false&&note.trashed==false).map(note=>this.others.push(note));
       },  
       (error:any)=> {
         this.matSnackBar.open(error.error.message, "failed", {duration:5000})

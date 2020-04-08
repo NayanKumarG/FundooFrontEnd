@@ -18,6 +18,8 @@ export class NoteService {
   private archieveNoteUrl = environment.archieveUrl;
   private trashNoteUrl = environment.trashUrl;
   private addColorUrl = environment.addColorUrl;
+  private getArchieveNoteUrl = environment.getArchieveUrl;
+  private getTrashedNoteUrl = environment.getTrashedUrl;
  
 
   private httpOptions={
@@ -59,6 +61,16 @@ addColor(noteId:number , color:string){
   // var params = { color: colors };
   // var config = { params: params };
   return this.httpService.put(`${this.noteApiUrl}${this.addColorUrl}?noteId=${noteId}&color=${color}`, "" , this.httpOptions);
+}
+
+getArchieveNotes()
+{
+  return this.httpService.get(this.noteApiUrl+this.getArchieveNoteUrl,this.httpOptions);
+}
+
+getTrashedNotes()
+{
+  return this.httpService.get(this.noteApiUrl+this.getTrashedNoteUrl,this.httpOptions);
 }
 
 }
