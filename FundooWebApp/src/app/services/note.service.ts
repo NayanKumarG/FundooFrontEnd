@@ -20,6 +20,7 @@ export class NoteService {
   private addColorUrl = environment.addColorUrl;
   private getArchieveNoteUrl = environment.getArchieveUrl;
   private getTrashedNoteUrl = environment.getTrashedUrl;
+  private getPinnedNoteUrl = environment.getPinnedNoteUrl;
  
 
   private httpOptions={
@@ -68,9 +69,14 @@ getArchieveNotes()
   return this.httpService.get(this.noteApiUrl+this.getArchieveNoteUrl,this.httpOptions);
 }
 
-getTrashedNotes()
+getTrashedNotes():Observable<any>
 {
   return this.httpService.get(this.noteApiUrl+this.getTrashedNoteUrl,this.httpOptions);
+}
+
+getPinnedNotes()
+{
+  return this.httpService.get(this.noteApiUrl+this.getPinnedNoteUrl , this.httpOptions);
 }
 
 }

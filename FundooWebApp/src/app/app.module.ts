@@ -29,10 +29,9 @@ import { UserVerificationComponent } from './components/user-verification/user-v
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CreatenotesComponent } from './components/createnotes/createnotes.component';
 import { DisplaynotesComponent } from './components/displaynotes/displaynotes.component';
-
 import { NoteComponent } from './components/note/note.component';
-import { ArchievenoteComponent } from './components/archievenote/archievenote.component';
-import { TrashednoteComponent } from './components/trashednote/trashednote.component';
+import { IconsComponent } from './components/icons/icons.component';
+
 
 
 @NgModule({
@@ -47,8 +46,7 @@ import { TrashednoteComponent } from './components/trashednote/trashednote.compo
     CreatenotesComponent,
     DisplaynotesComponent,
     NoteComponent,
-    ArchievenoteComponent,
-    TrashednoteComponent
+    IconsComponent
     
   ],
   imports: [

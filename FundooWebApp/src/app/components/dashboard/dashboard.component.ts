@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+
 
   value= '';
   constructor(private router:Router) { }
@@ -34,4 +35,12 @@ refresh() {
 window.location.reload();
 }
 
+onArchive(){
+  this.router.navigate(['dashboard/displaynote'],{queryParams:{note:'archive'}});
+  
+}
+
+onTrash(){
+  this.router.navigate(['dashboard/displaynote'],{queryParams:{note:'trash'}});
+}
 }

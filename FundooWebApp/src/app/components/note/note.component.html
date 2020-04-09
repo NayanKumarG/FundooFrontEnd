@@ -4,14 +4,14 @@
             <div *ngIf="!note.pinned" class="pin-div">
                 <button mat-icon-button class="pin" (click)="pinNote()">
                   <mat-icon matTooltip="pin note">
-                    <img src="../../../assets/icons/unpin.png" style="width: 25px;height: 25px;" [ngStyle]="{ 'background-color': note.color }">
+                    <img src="../../../assets/icons/pin.svg" style="width: 25px;height: 25px;" [ngStyle]="{ 'background-color': note.color }">
                   </mat-icon>
                 </button>
               </div>
               <div *ngIf="note.pinned" class="pin-div">
                 <button mat-icon-button class="pin" (click)="pinNote()">
                   <mat-icon matTooltip="unpin note">
-                    <img src="../../../assets/icons/pinicon.png" style="width: 25px;height: 25px;">
+                    <img src="../../../assets/icons/unpinn.svg" style="width: 25px;height: 25px;">
                   </mat-icon>
                 </button>
               </div>
@@ -25,7 +25,7 @@
                     {{ note.description }}
                 </mat-card-content>
             </div>
-            <div class="note-icon">
+            <!-- <div class="note-icon">
                 <button mat-icon-button>
                     <mat-icon matTooltip="Remind me">notifications_none</mat-icon>
                 </button>
@@ -70,7 +70,28 @@
                   Add label
                 </button>
               </mat-menu>
+            </div> -->
+            <div
+            *ngIf="
+            !note.trashed;
+            else trashedNote " >
+            <app-icons [note]="note"></app-icons>
             </div>
+            <ng-template #trashedNote>
+              <div class="trashcard">
+                <mat-card-footer>
+                  <button mat-icon-button>
+                    <mat-icon matTooltip="Delete forever">delete_forever</mat-icon>
+                  </button>
+                  <button
+                    mat-icon-button
+                    matTooltip="Restore"
+                  >
+                    <mat-icon>restore_from_trash</mat-icon>
+                  </button>
+                </mat-card-footer>
+              </div>
+            </ng-template>
         </mat-card>
     </div>
 </div>

@@ -20,7 +20,8 @@ export const environment = {
   trashUrl:'/delete/',
   addColorUrl:'/addColor/',
   getArchieveUrl:'/archievedNotes',
-  getTrashedUrl:'/trashedNotes'
+  getTrashedUrl:'/trashedNotes',
+  getPinnedNoteUrl:'/pinnedNotes'
 };
 
 /*
