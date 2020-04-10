@@ -21,7 +21,9 @@ export const environment = {
   addColorUrl:'/addColor/',
   getArchieveUrl:'/archievedNotes',
   getTrashedUrl:'/trashedNotes',
-  getPinnedNoteUrl:'/pinnedNotes'
+  getPinnedNoteUrl:'/pinnedNotes',
+  deletePermanentlyUrl:'/deletePermanently/',
+  searchNoteUrl:'/getNotesByTitle'
 };
 
 /*

@@ -18,7 +18,7 @@
       <button mat-icon-button  class="search-icon">
         <mat-icon matTooltip="search">search</mat-icon>
       </button>
-      <input type="text"  placeholder="Search" class="search-input">
+      <input type="text"  placeholder="Search" class="search-input" [(ngModel)]="title" (input)="searchNote()">
        <!-- <button mat-icon-button matTooltip="Clear Search" class="clear">
         <mat-icon>clear</mat-icon>
       </button> -->

@@ -31,6 +31,7 @@ import { CreatenotesComponent } from './components/createnotes/createnotes.compo
 import { DisplaynotesComponent } from './components/displaynotes/displaynotes.component';
 import { NoteComponent } from './components/note/note.component';
 import { IconsComponent } from './components/icons/icons.component';
+import { NotePipe } from './pipes/note.pipe';
 
 
 
@@ -46,7 +47,8 @@ import { IconsComponent } from './components/icons/icons.component';
     CreatenotesComponent,
     DisplaynotesComponent,
     NoteComponent,
-    IconsComponent
+    IconsComponent,
+    NotePipe
     
   ],
   imports: [

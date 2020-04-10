@@ -23,6 +23,8 @@ export class CreatenotesComponent implements OnInit {
   title=new FormControl('',[Validators.required]);
   description=new FormControl('',[Validators.required]);
 
+ 
+
   open:boolean = false;
 
   openNote(){

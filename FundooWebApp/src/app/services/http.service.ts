@@ -21,4 +21,9 @@ export class HttpService {
   public get(url :any,options :any):any{
     return this.http.get(url,options);
   }
+
+  public delete(url:any,options :any):any{
+    return this.http.delete(url,options);
+    
+  }
 }
