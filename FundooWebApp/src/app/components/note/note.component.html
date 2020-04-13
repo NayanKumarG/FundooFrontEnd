@@ -1,6 +1,6 @@
 <div class="container" >
     <div class="mat-display"  >
-        <mat-card [ngStyle]="{ 'background-color': note.color }">
+        <mat-card [ngStyle]="{ 'background-color': note.color }" >
             <div *ngIf="!note.pinned" class="pin-div">
                 <button mat-icon-button class="pin" (click)="pinNote()">
                   <mat-icon matTooltip="pin note">
@@ -15,62 +15,17 @@
                   </mat-icon>
                 </button>
               </div>
-            <div class="mat-title">
+            <div class="mat-title" (click)="!note.trashed && open(note)">
                 <mat-card-title>
                     {{ note.title }}
                 </mat-card-title>
             </div>
-            <div class="mat-desc">
+            <div class="mat-desc" (click)="!note.trashed && open(note)">
                 <mat-card-content>
                     {{ note.description }}
                 </mat-card-content>
             </div>
-            <!-- <div class="note-icon">
-                <button mat-icon-button>
-                    <mat-icon matTooltip="Remind me">notifications_none</mat-icon>
-                </button>
-                <button mat-icon-button>
-                    <mat-icon matTooltip="Collaborator">person_add</mat-icon>
-                </button>
-                <button mat-icon-button [matMenuTriggerFor]="menu1">
-                    <mat-icon matTooltip="Add color">color_lens</mat-icon>
-                </button >
-                <mat-menu #menu1="matMenu" >
-                    <div *ngFor="let colors of colorsList" fxLayout="row">
-                      <div *ngFor="let color of colors" class="colorsList">
-                        <button [ngStyle]="{ 'background-color': color.colorCode }"
-                            (click)="changeColor(color)"
-                            matTooltip="{{ color.name }}"
-                            mat-mini-fab
-                          ></button>
-                      </div>
-                    </div>
-                  </mat-menu>
-                <button mat-icon-button>
-                    <mat-icon matTooltip="Add image">crop_original</mat-icon>
-                </button>
-                <div *ngIf="!note.archieved">
-                <button mat-icon-button (click)="archieveNote()">
-                    <mat-icon matTooltip="Archive">archive</mat-icon>
-                </button>
-            </div>
-            <div *ngIf="note.archieved">
-                <button mat-icon-button (click)="archieveNote()">
-                    <mat-icon matTooltip="unarchive">unarchive</mat-icon>
-                </button>
-            </div>
-                <button mat-icon-button>
-                <mat-icon matTooltip="More" [matMenuTriggerFor]="menu">more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu">
-                <button mat-menu-item (click)="deleteNote()">
-                  Delete Note
-                </button>
-                <button mat-menu-item>
-                  Add label
-                </button>
-              </mat-menu>
-            </div> -->
+
             <div
             *ngIf="
             !note.trashed;

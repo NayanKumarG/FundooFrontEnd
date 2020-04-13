@@ -23,7 +23,8 @@ export const environment = {
   getTrashedUrl:'/trashedNotes',
   getPinnedNoteUrl:'/pinnedNotes',
   deletePermanentlyUrl:'/deletePermanently/',
-  searchNoteUrl:'/getNotesByTitle'
+  searchNoteUrl:'/getNotesByTitle',
+  updateNoteUrl:'/update/'
 };
 
 /*

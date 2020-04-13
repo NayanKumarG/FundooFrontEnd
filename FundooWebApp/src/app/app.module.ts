@@ -20,6 +20,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 import { LoginComponent } from './components/login/login.component';
@@ -32,6 +33,7 @@ import { DisplaynotesComponent } from './components/displaynotes/displaynotes.co
 import { NoteComponent } from './components/note/note.component';
 import { IconsComponent } from './components/icons/icons.component';
 import { NotePipe } from './pipes/note.pipe';
+import { UpdatenoteComponent } from './components/updatenote/updatenote.component';
 
 
 
@@ -48,7 +50,8 @@ import { NotePipe } from './pipes/note.pipe';
     DisplaynotesComponent,
     NoteComponent,
     IconsComponent,
-    NotePipe
+    NotePipe,
+    UpdatenoteComponent
     
   ],
   imports: [
@@ -69,7 +72,8 @@ import { NotePipe } from './pipes/note.pipe';
     FlexLayoutModule,
     MatTooltipModule,
     MatDividerModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDialogModule
 
   ],
 

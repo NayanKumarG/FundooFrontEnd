@@ -25,8 +25,7 @@ export class NoteService {
   private getTrashedNoteUrl = environment.getTrashedUrl;
   private getPinnedNoteUrl = environment.getPinnedNoteUrl;
   private deleteNotePermanentlyUrl = environment.deletePermanentlyUrl;
-  private searchNoteUrl = environment.searchNoteUrl;
-  private title:string;
+  private updatenoteUrl = environment.updateNoteUrl;
  
 
   private httpOptions={
@@ -99,7 +98,10 @@ setSearchNoteData(message:any){
 getSearchNotes():Observable<any>
 {
   return this.searchNote.asObservable();
-  // return this.httpService.get(`${this.noteApiUrl}${this.searchNoteUrl}?title=${this.title}`, this.httpOptions);
+}
+
+updateNote(userId:number , note:any){
+  return this.httpService.put(this.noteApiUrl+this.updatenoteUrl+userId , note , this.httpOptions );
 }
 
 }

@@ -9,6 +9,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CreatenotesComponent } from './components/createnotes/createnotes.component';
 import { NoteComponent } from './components/note/note.component';
 import { DisplaynotesComponent } from './components/displaynotes/displaynotes.component';
+import { UpdatenoteComponent } from './components/updatenote/updatenote.component';
 
 
 
@@ -24,9 +25,14 @@ const routes: Routes = [
 
   children:[{path:"" , component:DisplaynotesComponent},
   {path:"createnotes" , component:CreatenotesComponent},
-  {path:"displaynote" , component:DisplaynotesComponent}
+  {path:"displaynote" , component:DisplaynotesComponent},
+  {path:"update" , component:UpdatenoteComponent},
+  {path:"note" , component:NoteComponent}
    
-]}
+]},
+
+{path:"update" , component:UpdatenoteComponent},
+{path:"note" , component:NoteComponent}
  
 ];
 
