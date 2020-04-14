@@ -1,14 +1,14 @@
 <div class="container" >
     <div class="mat-display"  >
         <mat-card [ngStyle]="{ 'background-color': note.color }" >
-            <div *ngIf="!note.pinned" class="pin-div">
+            <div *ngIf="!note.pinned && !note.trashed" class="pin-div">
                 <button mat-icon-button class="pin" (click)="pinNote()">
                   <mat-icon matTooltip="pin note">
                     <img src="../../../assets/icons/pin.svg" style="width: 25px;height: 25px;" [ngStyle]="{ 'background-color': note.color }">
                   </mat-icon>
                 </button>
               </div>
-              <div *ngIf="note.pinned" class="pin-div">
+              <div *ngIf="note.pinned && !note.trashed" class="pin-div">
                 <button mat-icon-button class="pin" (click)="pinNote()">
                   <mat-icon matTooltip="unpin note">
                     <img src="../../../assets/icons/unpinn.svg" style="width: 25px;height: 25px;">
@@ -22,7 +22,13 @@
             </div>
             <div class="mat-desc" (click)="!note.trashed && open(note)">
                 <mat-card-content>
-                    {{ note.description }}
+                    <!-- {{ note.description }} -->
+                    <textarea style="border: none"
+                    class="textArea"
+                    cdkTextareaAutosize
+                    disabled
+                    [ngStyle]="{ 'background-color': note.color }"
+                    >{{ note.description }}</textarea>
                 </mat-card-content>
             </div>
 

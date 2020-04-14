@@ -13,7 +13,7 @@ export class UpdatenoteComponent implements OnInit {
   note:Note;
 
   constructor(private noteService: NoteService,public matDialogRef: MatDialogRef<UpdatenoteComponent>,
-    private snackbar: MatSnackBar , @Inject(MAT_DIALOG_DATA) public data: any) {
+    private matSnackBar: MatSnackBar , @Inject(MAT_DIALOG_DATA) public data: any) {
       this.note=this.data.note;
      }
 
@@ -24,12 +24,23 @@ export class UpdatenoteComponent implements OnInit {
     this.matDialogRef.close();
     this.noteService.updateNote(this.note.noteId , this.note).subscribe(
       (response: any) => {
-        this.snackbar.open(response['message'], "ok", {duration: 4000});
+        this.matSnackBar.open(response['message'], "ok", {duration: 4000});
       },
       errors => {
-        this.snackbar.open(errors.error.message, "failed", {duration: 4000 });
+        this.matSnackBar.open(errors.error.message, "failed", {duration: 4000 });
       }
     );
   }
+
+  pinNote()
+  {
+this.noteService.pinNote(this.note.noteId).subscribe(
+  (response :any) => {
+    console.log("response : ", response);
+    this.matSnackBar.open(response['message'], "Ok", { duration: 4000})
+  }
+);
+  
+}
 
 }
