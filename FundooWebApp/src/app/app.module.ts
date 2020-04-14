@@ -22,6 +22,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatListModule,MatChipsModule} from '@angular/material';
 
 
 import { LoginComponent } from './components/login/login.component';
@@ -79,11 +80,15 @@ import { AddlabelComponent } from './components/addlabel/addlabel.component';
     MatDividerModule,
     MatMenuModule,
     MatDialogModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatListModule,
+    MatChipsModule
 
   ],
 
-
+  entryComponents:[
+    AddlabelComponent
+  ],
 
   providers: [],
   bootstrap: [AppComponent]

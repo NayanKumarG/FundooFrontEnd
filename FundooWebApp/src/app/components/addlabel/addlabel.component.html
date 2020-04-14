@@ -1,21 +1,22 @@
 
     <div>Note Label</div>
     <div >
-        <mat-form-field appearance="fill" color="white">
-            <input matInput placeholder="Search" id="labelName" />
+        <mat-form-field appearance="fill" color="white" style="width:200px">
+            <input matInput placeholder="Search" #labelInput>
             <mat-icon matSuffix>search</mat-icon>
         </mat-form-field>
     </div>
     <div >
-        <div  style="margin: -10px 0px;">
-            <mat-checkbox ></mat-checkbox>
-            <label mat-menu-item style="display: inline;">hello</label>
+        <div  *ngFor="let label of labels" style="margin: -10px 0px;">
+            <mat-checkbox (click)="addLabel(label.labelId)"></mat-checkbox>
+            <label mat-menu-item style="display: inline;" >{{label.labelName}}</label>
         </div>
     </div>
     <div style="padding-top: 10px;">
         <mat-divider></mat-divider>
         <div  style="margin-top: 5px;">
-            <button mat-button >create</button>
+            <button mat-button (click)="createLabel(labelInput.value)" >create</button>
         </div>
     </div>
+   
   

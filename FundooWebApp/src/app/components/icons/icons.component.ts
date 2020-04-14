@@ -1,7 +1,8 @@
 import { Component, OnInit ,Input} from '@angular/core';
 import { Note } from 'src/app/models/note.model';
 import { NoteService } from 'src/app/services/note.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSnackBar,MatDialog } from '@angular/material';
+import { AddlabelComponent } from '../addlabel/addlabel.component';
 
 @Component({
   selector: 'app-icons',
@@ -13,7 +14,7 @@ export class IconsComponent implements OnInit {
   @Input() note: Note;
 
   constructor(private noteService:NoteService,
-    private matSnackBar: MatSnackBar) { }
+    private matSnackBar: MatSnackBar,private matDialog: MatDialog) { }
 
   colorsList = [
     [
@@ -73,6 +74,15 @@ changeColor(color){
       });
     }
   );
+}
+
+openLabel(note): void {
+  const dialogRef = this.matDialog.open(AddlabelComponent, {
+    width: '250px', height: 'auto', data: { note }
+  });
+  dialogRef.afterClosed().subscribe(result => {
+    console.log('matdialog closed');
+  });
 }
 
 }

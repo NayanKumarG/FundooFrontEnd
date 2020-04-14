@@ -29,7 +29,9 @@ export const environment = {
   labelApiUrl:'http://localhost:8080/labels',
   createLabelUrl:'/create',
   deleteLabelUrl:'/delete',
-  updateLabelUrl:'/update'
+  updateLabelUrl:'/update',
+  getLabelsUrl:'/getLabels',
+  addLabelUrl:'/addLabel'
 };
 
 /*

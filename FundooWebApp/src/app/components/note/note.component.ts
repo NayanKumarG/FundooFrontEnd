@@ -1,5 +1,6 @@
 import { Component, OnInit ,Input} from '@angular/core';
 import { Note } from 'src/app/models/note.model';
+import { Label } from 'src/app/models/label.model';
 import { NoteService } from 'src/app/services/note.service';
 import { MatSnackBar , MatDialog, MatDialogRef} from '@angular/material';
 import { UpdatenoteComponent } from '../updatenote/updatenote.component';
@@ -11,13 +12,15 @@ import { UpdatenoteComponent } from '../updatenote/updatenote.component';
 })
 export class NoteComponent implements OnInit {
   @Input() note: Note;
-
+  labels:Label[];
 
  
   constructor(private noteService:NoteService,
     private matSnackBar: MatSnackBar,private dialog: MatDialog) { }
 
   ngOnInit() {
+    this.labels = this.note.labels;
+    console.log('labels:',this.labels);
   }
 
   open(note) {
