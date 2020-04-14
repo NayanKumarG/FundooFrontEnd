@@ -24,7 +24,12 @@ export const environment = {
   getPinnedNoteUrl:'/pinnedNotes',
   deletePermanentlyUrl:'/deletePermanently/',
   searchNoteUrl:'/getNotesByTitle',
-  updateNoteUrl:'/update/'
+  updateNoteUrl:'/update/',
+
+  labelApiUrl:'http://localhost:8080/labels',
+  createLabelUrl:'/create',
+  deleteLabelUrl:'/delete',
+  updateLabelUrl:'/update'
 };
 
 /*
