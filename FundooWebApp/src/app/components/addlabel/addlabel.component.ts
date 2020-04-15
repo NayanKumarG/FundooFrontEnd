@@ -43,7 +43,10 @@ export class AddlabelComponent implements OnInit {
       (response:any) => {
         console.log("input:", input);
         console.log("response:", response);
-        this.matSnackBar.open("Label Created","Ok",{duration:3000});
+        this.matSnackBar.open("Label Created","Ok",{duration:2000});
+        this.label = response['object'];
+        console.log("new label:",this.label);
+        this.addLabel(this.label.labelId);
     
       }
     );

@@ -31,7 +31,8 @@ export const environment = {
   deleteLabelUrl:'/delete',
   updateLabelUrl:'/update',
   getLabelsUrl:'/getLabels',
-  addLabelUrl:'/addLabel'
+  addLabelUrl:'/addLabel',
+  removeLabelUrl:'/remove'
 };
 
 /*

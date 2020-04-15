@@ -2,6 +2,7 @@ import { Component, OnInit ,Input} from '@angular/core';
 import { Note } from 'src/app/models/note.model';
 import { Label } from 'src/app/models/label.model';
 import { NoteService } from 'src/app/services/note.service';
+import { LabelService } from 'src/app/services/label.service';
 import { MatSnackBar , MatDialog, MatDialogRef} from '@angular/material';
 import { UpdatenoteComponent } from '../updatenote/updatenote.component';
 
@@ -15,7 +16,7 @@ export class NoteComponent implements OnInit {
   labels:Label[];
 
  
-  constructor(private noteService:NoteService,
+  constructor(private noteService:NoteService, private labelService:LabelService,
     private matSnackBar: MatSnackBar,private dialog: MatDialog) { }
 
   ngOnInit() {
@@ -58,6 +59,15 @@ deleteNote(){
 
 deletePermanently(){
   this.noteService.deleteNotePermanently(this.note.noteId).subscribe(
+    (response :any) => {
+      console.log("response : ", response);
+      this.matSnackBar.open(response['message'], "Ok", { duration: 4000})
+    }
+  );
+}
+
+remove(label:any){
+  this.labelService.removeLabel(label.labelId , this.note.noteId).subscribe(
     (response :any) => {
       console.log("response : ", response);
       this.matSnackBar.open(response['message'], "Ok", { duration: 4000})

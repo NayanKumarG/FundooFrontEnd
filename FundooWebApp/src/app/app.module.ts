@@ -87,7 +87,8 @@ import { AddlabelComponent } from './components/addlabel/addlabel.component';
   ],
 
   entryComponents:[
-    AddlabelComponent
+    AddlabelComponent,
+    EditlabelComponent
   ],
 
   providers: [],
