@@ -17,6 +17,9 @@ export class DashboardComponent implements OnInit {
 title: String;
   value= '';
 
+  view: boolean = false;
+  grid = "row";
+
 
 
   labels:Label[];
@@ -90,5 +93,19 @@ openEditLabelDialog() {
 
 getNotes(label){
   this.router.navigate(['dashboard/displaynote'],{queryParams:{ note: 'label', value: label.labelId }});
+}
+
+getView() {
+  if(this.view==true){
+    this.view=false;
+    this.grid="row";
+  }
+  else{
+    this.view=true;
+    this.grid="column";
+  }
+    // this.router.navigate(['/dashboard/displaynote'], { queryParams: { note: 'view', view: this.grid } });
+    this.noteService.setView(this.grid);
+  console.log(this.view);
 }
 }

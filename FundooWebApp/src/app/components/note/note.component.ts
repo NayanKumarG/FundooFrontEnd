@@ -75,4 +75,12 @@ remove(label:any){
   );
 }
 
+removeReminder(noteId:any){
+  this.noteService.deleteReminder(noteId).subscribe(
+    (response :any) => {
+      console.log("response : ", response);
+      this.matSnackBar.open(response['message'], "Ok", { duration: 4000})
+    }
+  )
+}
 }

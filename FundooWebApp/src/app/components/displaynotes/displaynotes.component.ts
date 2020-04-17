@@ -22,6 +22,7 @@ export class DisplaynotesComponent implements OnInit {
   pinned = new Array<Note>();
   searchNotes: any;
   labelId:number;
+  view:any;
 
   constructor(    private route: Router,
     private matSnackBar: MatSnackBar,
@@ -30,10 +31,15 @@ export class DisplaynotesComponent implements OnInit {
    private param:any;
 
   ngOnInit() {
+    this.noteService.autoRefresh.subscribe(() => {
+      this.getOtherNotes();
+      this.getPinnedNotes();
+    });
     this.router.queryParams.subscribe(params=>{this.param=params['note'];
     if (this.param == "archive") 
     {
       this.getArchivedNotes();
+      this.getView();
     }
     else if(this.param == "trash")
     {
@@ -43,6 +49,13 @@ export class DisplaynotesComponent implements OnInit {
     {
       this.reminderNotes();
     }
+//     else if(this.param == "view")
+//     {
+// this.view = params['view'];
+// console.log("view type:",this.view);
+// // this.getOtherNotes();
+// this.getPinnedNotes();
+//     }
     else if(this.param == "label" )
     {
 console.log("param labelId:",params['value']);
@@ -53,12 +66,14 @@ this.getLabelNotes();
     {
      this.getOtherNotes();
      this.getPinnedNotes();
+     this.getView();
      
     }
     
     
     });
     this.getSearchNotes();
+    
   }
 
   getOtherNotes(){
@@ -164,6 +179,15 @@ console.log("searchtitle",message.notes);
         this.matSnackBar.open(error.error.message, "failed", {duration:5000})
       }
     );
+  }
+
+  getView(){
+    this.noteService.getView().subscribe(
+      (response:any)=>{
+               this.view=response.view;
+           }
+    );
+    
   }
 
 }

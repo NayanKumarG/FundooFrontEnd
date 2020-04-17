@@ -28,8 +28,11 @@
         <button mat-icon-button class="refresh" (click)="refresh()">
           <mat-icon matTooltip="Refresh">refresh</mat-icon>
         </button>
-        <button mat-icon-button class="grid">
-          <mat-icon matTooltip="Grid view">grid_view</mat-icon>
+        <button mat-icon-button *ngIf="view" matTooltip="Grid View" (click)="getView()">
+          <mat-icon>view_module</mat-icon>
+        </button>
+        <button mat-icon-button *ngIf="!view" matTooltip="List View" (click)="getView()">
+          <mat-icon>view_agenda</mat-icon>
         </button>
         <button mat-icon-button class="setting">
           <mat-icon matTooltip="Settings">settings</mat-icon>

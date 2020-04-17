@@ -36,8 +36,8 @@
               <mat-card-content class="content" id="remainder-box">
                 <mat-chip
                   class="textArea"
-                  id="note-reminder"
-                  >{{ note.reminder }}</mat-chip
+                  >{{ note.reminder }}
+                  <mat-icon matChipRemove (click)="removeReminder(note.noteId)" matTooltip="remove">cancel</mat-icon></mat-chip
                 >
               </mat-card-content>
             </div>
@@ -46,7 +46,7 @@
             <div  class="matchip" style="width: 100%;">
               <mat-chip *ngFor="let label of labels">
                   {{label.labelName}}
-                <mat-icon matChipRemove (click)="remove(label)" >cancel</mat-icon>
+                <mat-icon matChipRemove (click)="remove(label)" matTooltip="remove">cancel</mat-icon>
                 </mat-chip>
             </div>
           </mat-chip-list>

@@ -41,6 +41,8 @@ export class NoteService {
     return this.subject;
   }
 
+  private view=new Subject<any>();
+
 createNote(noteDetail:any):Observable<any>
 {
   console.log("note:",noteDetail);
@@ -112,6 +114,16 @@ addReminder(noteId:number , reminder:any)
 deleteReminder(noteId:number)
 {
 return this.httpService.put(`${this.noteApiUrl}${environment.removeReminderUrl}?noteId=${noteId}`, " " , this.httpOptions);
+}
+
+setView(data:any){
+  
+ this.view.next({view:data});
+ 
+}
+
+getView():Observable<any>{
+ return this.view.asObservable();
 }
 
 }
