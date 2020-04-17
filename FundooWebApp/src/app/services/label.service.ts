@@ -53,4 +53,8 @@ return this.httpService.delete(`${this.labelUrl}${this.deleteLabelUrl}?labelId=$
   removeLabel(labelId:number , noteId:number){
     return this.httpService.post(`${this.labelUrl}${environment.removeLabelUrl}?labelId=${labelId}&noteId=${noteId}`,"" , this.httpOptions);
   }
+
+  getNotesByLabel(labelId:number){
+    return this.httpService.get(this.labelUrl+environment.getNotesByLableUrl+labelId,this.httpOptions);
+  }
 }

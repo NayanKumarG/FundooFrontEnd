@@ -57,6 +57,11 @@ onTrash(){
   this.router.navigate(['dashboard/displaynote'],{queryParams:{note:'trash'}});
 }
 
+reminder()
+{
+  this.router.navigate(['dashboard/displaynote'],{queryParams:{note:'rem'}});
+}
+
 searchNote() {
   this.noteService.setSearchNoteData(this.title);
 }
@@ -81,5 +86,9 @@ openEditLabelDialog() {
   dialogRef.afterClosed().subscribe(result => {
     console.log("dialog closed");
   });
+}
+
+getNotes(label){
+  this.router.navigate(['dashboard/displaynote'],{queryParams:{ note: 'label', value: label.labelId }});
 }
 }

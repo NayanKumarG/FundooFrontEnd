@@ -32,6 +32,16 @@
                 </mat-card-content>
             </div>
 
+            <div *ngIf="note.reminder != null">
+              <mat-card-content class="content" id="remainder-box">
+                <mat-chip
+                  class="textArea"
+                  id="note-reminder"
+                  >{{ note.reminder }}</mat-chip
+                >
+              </mat-card-content>
+            </div>
+
           <mat-chip-list>
             <div  class="matchip" style="width: 100%;">
               <mat-chip *ngFor="let label of labels">

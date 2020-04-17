@@ -25,6 +25,8 @@ export const environment = {
   deletePermanentlyUrl:'/deletePermanently/',
   searchNoteUrl:'/getNotesByTitle',
   updateNoteUrl:'/update/',
+  addReminderUrl:'/noteReminder',
+  removeReminderUrl:'/deleteReminder',
 
   labelApiUrl:'http://localhost:8080/labels',
   createLabelUrl:'/create',
@@ -32,7 +34,8 @@ export const environment = {
   updateLabelUrl:'/update',
   getLabelsUrl:'/getLabels',
   addLabelUrl:'/addLabel',
-  removeLabelUrl:'/remove'
+  removeLabelUrl:'/remove',
+  getNotesByLableUrl:'/getNotesByLabel/'
 };
 
 /*

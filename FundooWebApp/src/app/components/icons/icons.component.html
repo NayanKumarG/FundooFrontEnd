@@ -1,6 +1,6 @@
 <div class="note-icon">
-    <button mat-icon-button>
-        <mat-icon matTooltip="Remind me">notifications_none</mat-icon>
+    <button mat-icon-button [matMenuTriggerFor]="reminder">
+        <mat-icon matTooltip="Remind me" >notifications_none</mat-icon>
     </button>
     <button mat-icon-button>
         <mat-icon matTooltip="Collaborator">person_add</mat-icon>
@@ -42,6 +42,31 @@
     <button mat-menu-item (click)="openLabel(note)">
       Add label
     </button>
+  </mat-menu>
+
+  <mat-menu #reminder="matMenu">
+    <div style="margin: 20px;">
+      Reminder:
+    </div>
+
+    <button class="matmenu" mat-menu-item >Later today
+      <span style="margin-left: 100px;">08:00 PM</span>
+    </button>
+
+    <button class="matmenu" mat-menu-item>Tomorrow
+      <span style="margin-left: 110px;">08:00 AM</span>
+    </button>
+
+    <button class="matmenu" mat-menu-item>Next week
+      <span style="margin-left: 75px;">Mon, 08:00 AM</span>
+    </button>
+
+    <button class="matmenu" mat-menu-item (click) = "datePicker()">
+      <mat-icon style="font-size: 18px; margin: 1px;">access_time</mat-icon>
+      <span>Pick date & time</span>
+    </button>
+
+    <button mat-menu-item><mat-icon>place</mat-icon>Pick place</button>
   </mat-menu>
 
 </div>

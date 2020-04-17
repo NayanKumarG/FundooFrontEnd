@@ -3,6 +3,7 @@ import { Note } from 'src/app/models/note.model';
 import { NoteService } from 'src/app/services/note.service';
 import { MatSnackBar,MatDialog } from '@angular/material';
 import { AddlabelComponent } from '../addlabel/addlabel.component';
+import { ReminderComponent } from '../reminder/reminder.component';
 
 @Component({
   selector: 'app-icons',
@@ -12,6 +13,8 @@ import { AddlabelComponent } from '../addlabel/addlabel.component';
 export class IconsComponent implements OnInit {
 
   @Input() note: Note;
+
+  reminderDate:String;
 
   constructor(private noteService:NoteService,
     private matSnackBar: MatSnackBar,private matDialog: MatDialog) { }
@@ -84,5 +87,26 @@ openLabel(note): void {
     console.log('matdialog closed');
   });
 }
+
+datePicker() {
+this.matDialog.open(ReminderComponent, {
+  data : " ",
+  panelClass: 'custom-dialog-container'
+});
+
+}
+
+
+addReminder(noteId:number)
+{
+this.noteService.addReminder(noteId , this.reminderDate).subscribe(
+  response => {
+    console.log("response : ", response);
+    this.matSnackBar.open(response['message'], "ok", { duration: 4000
+    });
+  }
+);
+}
+
 
 }

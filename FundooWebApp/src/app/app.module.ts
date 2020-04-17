@@ -23,6 +23,9 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatListModule,MatChipsModule} from '@angular/material';
+import {MatDatepickerModule , MatNativeDateModule} from '@angular/material';
+import {MatSelectModule} from '@angular/material/select';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
 
 import { LoginComponent } from './components/login/login.component';
@@ -38,6 +41,8 @@ import { NotePipe } from './pipes/note.pipe';
 import { UpdatenoteComponent } from './components/updatenote/updatenote.component';
 import { EditlabelComponent } from './components/editlabel/editlabel.component';
 import { AddlabelComponent } from './components/addlabel/addlabel.component';
+import { LabelPipe } from './pipes/label.pipe';
+import { ReminderComponent } from './components/reminder/reminder.component';
 
 
 
@@ -57,7 +62,9 @@ import { AddlabelComponent } from './components/addlabel/addlabel.component';
     NotePipe,
     UpdatenoteComponent,
     EditlabelComponent,
-    AddlabelComponent
+    AddlabelComponent,
+    LabelPipe,
+    ReminderComponent
     
   ],
   imports: [
@@ -82,13 +89,20 @@ import { AddlabelComponent } from './components/addlabel/addlabel.component';
     MatDialogModule,
     MatCheckboxModule,
     MatListModule,
-    MatChipsModule
+    MatChipsModule,
+    MatDatepickerModule,
+    MatSelectModule,
+    MatNativeDateModule,
+    OwlDateTimeModule, 
+    OwlNativeDateTimeModule
 
   ],
 
   entryComponents:[
     AddlabelComponent,
-    EditlabelComponent
+    EditlabelComponent,
+    ReminderComponent
+
   ],
 
   providers: [],

@@ -104,4 +104,14 @@ updateNote(userId:number , note:any){
   return this.httpService.put(this.noteApiUrl+this.updatenoteUrl+userId , note , this.httpOptions );
 }
 
+addReminder(noteId:number , reminder:any)
+{
+  return this.httpService.put(`${this.noteApiUrl}${environment.addReminderUrl}?noteId=${noteId}`,reminder , this.httpOptions);
+}
+
+deleteReminder(noteId:number)
+{
+return this.httpService.put(`${this.noteApiUrl}${environment.removeReminderUrl}?noteId=${noteId}`, " " , this.httpOptions);
+}
+
 }

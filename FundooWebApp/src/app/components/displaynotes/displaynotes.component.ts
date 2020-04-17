@@ -3,6 +3,7 @@ import { Note } from 'src/app/models/note.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router , ActivatedRoute } from '@angular/router';
 import { NoteService } from 'src/app/services/note.service';
+import { LabelService } from 'src/app/services/label.service';
 
 
 @Component({
@@ -20,10 +21,11 @@ export class DisplaynotesComponent implements OnInit {
   notes = new Array<Note>();
   pinned = new Array<Note>();
   searchNotes: any;
+  labelId:number;
 
   constructor(    private route: Router,
     private matSnackBar: MatSnackBar,
-    private noteService:NoteService , private router:ActivatedRoute) { }
+    private noteService:NoteService ,private labelService:LabelService, private router:ActivatedRoute) { }
 
    private param:any;
 
@@ -36,6 +38,16 @@ export class DisplaynotesComponent implements OnInit {
     else if(this.param == "trash")
     {
       this.getTrashedNotes();
+    }
+    else if(this.param == "rem")
+    {
+      this.reminderNotes();
+    }
+    else if(this.param == "label" )
+    {
+console.log("param labelId:",params['value']);
+this.labelId = params['value'];
+this.getLabelNotes();
     }
     else
     {
@@ -127,5 +139,31 @@ console.log("searchtitle",message.notes);
     );
   }
 
+  getLabelNotes(){
+    this.labelService.getNotesByLabel(this.labelId).subscribe(
+      (response: any) => {
+        console.log("getnotesby labelID response", response);
+      
+        this.notes = response['object'];
+          
+      }
+    )
+  }
+
+  reminderNotes()
+  {
+    this.noteService.getAllNotes().subscribe(
+
+      (response: any) => {
+        console.log("response", response);
+        console.log("notes:",response.object);
+        this.others = response['object'];
+         this.others.filter(note=>note.reminder != null).map(note=>this.notes.push(note));
+      },  
+      (error:any)=> {
+        this.matSnackBar.open(error.error.message, "failed", {duration:5000})
+      }
+    );
+  }
 
 }

@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormControl , FormGroup} from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSnackBar , MatDialog  } from '@angular/material';
 import { Router } from '@angular/router';
 import { NoteService } from 'src/app/services/note.service';
 import {Note} from 'src/app/models/note.model';
 import { HttpResponse , HttpHeaders } from '@angular/common/http';
+import { ReminderComponent } from '../reminder/reminder.component';
 
 @Component({
   selector: 'app-createnotes',
@@ -13,7 +14,7 @@ import { HttpResponse , HttpHeaders } from '@angular/common/http';
 })
 export class CreatenotesComponent implements OnInit {
 
-  constructor(private noteService:NoteService,private router:Router,private matSnackBar:MatSnackBar) { }
+  constructor(private noteService:NoteService,private router:Router,private matSnackBar:MatSnackBar , private matDialog: MatDialog) { }
 
   noteModel:Note = new Note();
 
@@ -53,4 +54,12 @@ else{
   this.matSnackBar.open("Notes not created", "failed", {duration:5000})
 }
   }
+
+  datePicker() {
+    this.matDialog.open(ReminderComponent, {
+      data : " ",
+      panelClass: 'custom-dialog-container'
+    });
+    
+    }
 }
