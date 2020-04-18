@@ -11,6 +11,9 @@ export const environment = {
   forgotPasswordUrl:'/forgotPassword',
   resetPasswordUrl:'/updatePassword/',
   userVerification:'/verifyMail/',
+  addCollaboratorUrl:'/addCollaborator',
+  deleteCollaboratorUrl:'/deleteCollaborator',
+  getCollaboratorsUrl:'/getCollaborators',
 
   noteApiUrl:'http://localhost:8080/notes',
   createNoteUrl:'/create',

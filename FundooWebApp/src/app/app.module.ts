@@ -43,6 +43,7 @@ import { EditlabelComponent } from './components/editlabel/editlabel.component';
 import { AddlabelComponent } from './components/addlabel/addlabel.component';
 import { LabelPipe } from './pipes/label.pipe';
 import { ReminderComponent } from './components/reminder/reminder.component';
+import { CollaboratorComponent } from './components/collaborator/collaborator.component';
 
 
 
@@ -64,7 +65,8 @@ import { ReminderComponent } from './components/reminder/reminder.component';
     EditlabelComponent,
     AddlabelComponent,
     LabelPipe,
-    ReminderComponent
+    ReminderComponent,
+    CollaboratorComponent
     
   ],
   imports: [
@@ -101,7 +103,8 @@ import { ReminderComponent } from './components/reminder/reminder.component';
   entryComponents:[
     AddlabelComponent,
     EditlabelComponent,
-    ReminderComponent
+    ReminderComponent,
+    CollaboratorComponent
 
   ],
 

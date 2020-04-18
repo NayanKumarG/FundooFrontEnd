@@ -4,6 +4,7 @@ import { NoteService } from 'src/app/services/note.service';
 import { MatSnackBar,MatDialog } from '@angular/material';
 import { AddlabelComponent } from '../addlabel/addlabel.component';
 import { ReminderComponent } from '../reminder/reminder.component';
+import { CollaboratorComponent } from '../collaborator/collaborator.component';
 
 @Component({
   selector: 'app-icons',
@@ -89,9 +90,12 @@ openLabel(note): void {
 }
 
 datePicker() {
-this.matDialog.open(ReminderComponent, {
+const dialogRef = this.matDialog.open(ReminderComponent, {
   data : " ",
   panelClass: 'custom-dialog-container'
+});
+dialogRef.afterClosed().subscribe(result => {
+  console.log("collaborator closed");
 });
 
 }
@@ -106,6 +110,15 @@ this.noteService.addReminder(noteId , this.reminderDate).subscribe(
     });
   }
 );
+}
+
+addCollaborator(note){
+  const dialogRef=this.matDialog.open(CollaboratorComponent,{
+    data:{noteId:note.noteId}
+  });
+  dialogRef.afterClosed().subscribe(result => {
+    console.log("collaborator closed");
+  });
 }
 
 
