@@ -55,10 +55,10 @@ export class ReminderComponent implements OnInit {
   setReminder:any;
 
   times: Time[] = [
-    {value: '8:00', viewValue: ' Morning 8:00 AM'},
-    {value: '1:00', viewValue: 'Afternoon 1:00 PM'},
-    {value: '6:00', viewValue: 'Evening 6:00 PM'},
-    {value: '8:00', viewValue: 'Night 8:00 PM'}
+    {value: '9:00', viewValue: ' Morning 8:00 AM'},
+    {value: '2:00', viewValue: 'Afternoon 1:00 PM'},
+    {value: '7:00', viewValue: 'Evening 6:00 PM'},
+    {value: '9:00', viewValue: 'Night 8:00 PM'}
   ];
 
   repeatReminder = [ {value: 'Does not repeat'},
@@ -90,8 +90,6 @@ saveReminder(date:any){
       });
     }
   );
-
-
 }
 setTime(time:any){
   this.reminderTime = time;
@@ -102,14 +100,4 @@ dateFormat(){
   
 }
 
-addReminder(noteId:number)
-{
-this.noteService.addReminder(noteId , this.reminderDate).subscribe(
-  response => {
-    console.log("response : ", response);
-    this.matSnackBar.open(response['message'], "ok", { duration: 4000
-    });
-  }
-);
-}
 }

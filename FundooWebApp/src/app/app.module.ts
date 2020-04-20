@@ -26,6 +26,7 @@ import {MatListModule,MatChipsModule} from '@angular/material';
 import {MatDatepickerModule , MatNativeDateModule} from '@angular/material';
 import {MatSelectModule} from '@angular/material/select';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import { DatePipe } from '@angular/common';
 
 
 import { LoginComponent } from './components/login/login.component';
@@ -108,7 +109,7 @@ import { CollaboratorComponent } from './components/collaborator/collaborator.co
 
   ],
 
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
