@@ -14,6 +14,7 @@ export const environment = {
   addCollaboratorUrl:'/addCollaborator',
   deleteCollaboratorUrl:'/deleteCollaborator',
   getCollaboratorsUrl:'/getCollaborators',
+  getFileUrl:'/getFile',
 
   noteApiUrl:'http://localhost:8080/notes',
   createNoteUrl:'/create',

@@ -6,6 +6,7 @@ import { AddlabelComponent } from '../addlabel/addlabel.component';
 import { ReminderComponent } from '../reminder/reminder.component';
 import { CollaboratorComponent } from '../collaborator/collaborator.component';
 
+
 @Component({
   selector: 'app-icons',
   templateUrl: './icons.component.html',
@@ -16,6 +17,7 @@ export class IconsComponent implements OnInit {
   @Input() note: Note;
 
   reminderDate:String;
+  
 
   constructor(private noteService:NoteService,
     private matSnackBar: MatSnackBar,private matDialog: MatDialog) { }
@@ -89,9 +91,9 @@ openLabel(note): void {
   });
 }
 
-datePicker() {
+datePicker(note) {
 const dialogRef = this.matDialog.open(ReminderComponent, {
-  data : " ",
+  data : {noteId:note.noteId},
   panelClass: 'custom-dialog-container'
 });
 dialogRef.afterClosed().subscribe(result => {

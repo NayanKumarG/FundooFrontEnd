@@ -41,7 +41,6 @@
                 >
               </mat-card-content>
             </div>
-
           <mat-chip-list>
             <div  class="matchip" style="width: 100%;">
               <mat-chip *ngFor="let label of labels">
@@ -50,7 +49,8 @@
                 </mat-chip>
             </div>
           </mat-chip-list>
-
+          <!-- <mat-icon *ngFor="let user of collaborators" matTooltip="{{user.name}}">face</mat-icon> -->
+      
             <div
             *ngIf="
             !note.trashed;

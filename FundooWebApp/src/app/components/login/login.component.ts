@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { Login} from 'src/app/models/login.model';
 import { HttpResponse , HttpHeaders } from '@angular/common/http';
+import { User } from 'src/app/models/user.model';
 
 
 
@@ -16,10 +17,12 @@ import { HttpResponse , HttpHeaders } from '@angular/common/http';
 export class LoginComponent implements OnInit {
 
   login:Login = new Login();
+  user:User = new User();
 
   constructor(private userService:UserService,private router:Router,private matSnackBar:MatSnackBar) { }
 
   ngOnInit() {
+  
   }
 
   email = new FormControl(null,[Validators.required,Validators.email]);
@@ -48,9 +51,11 @@ this.userService.userLogin(this.login).subscribe(
   (response:any) =>{
 console.log("message:"+response.message);
 console.log("token:"+response.token);
+this.user = response['object'];
     
 localStorage.setItem('token' , response.token);
 localStorage.setItem('email' , this.email.value);
+localStorage.setItem('userName' , this.user.name.valueOf());
 
 this.matSnackBar.open(response.message , "Success", {duration:5000})
 this.router.navigate(["/dashboard"]);

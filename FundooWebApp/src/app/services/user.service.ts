@@ -64,4 +64,9 @@ return this.httpService.put(this.userApiUrl+environment.userVerification+token,"
   {
     return this.httpService.get(`${this.userApiUrl}${environment.getCollaboratorsUrl}?noteId=${noteId}`, {headers:new HttpHeaders({'token':localStorage.token})});
   }
+
+  getFile()
+  {
+    return this.httpService.get(`${this.userApiUrl}${environment.getFileUrl}`, {headers:new HttpHeaders({'token':localStorage.token})});
+  }
 }

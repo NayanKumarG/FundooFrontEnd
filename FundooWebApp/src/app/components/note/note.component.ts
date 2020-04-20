@@ -5,6 +5,8 @@ import { NoteService } from 'src/app/services/note.service';
 import { LabelService } from 'src/app/services/label.service';
 import { MatSnackBar , MatDialog, MatDialogRef} from '@angular/material';
 import { UpdatenoteComponent } from '../updatenote/updatenote.component';
+import { UserService } from 'src/app/services/user.service';
+import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-note',
@@ -14,14 +16,16 @@ import { UpdatenoteComponent } from '../updatenote/updatenote.component';
 export class NoteComponent implements OnInit {
   @Input() note: Note;
   labels:Label[];
+  collaborators:User[];
 
  
-  constructor(private noteService:NoteService, private labelService:LabelService,
+  constructor(private noteService:NoteService, private labelService:LabelService,private userService:UserService,
     private matSnackBar: MatSnackBar,private dialog: MatDialog) { }
 
   ngOnInit() {
     this.labels = this.note.labels;
     console.log('labels:',this.labels);
+    this.getCollaborators();
   }
 
   open(note) {
@@ -82,5 +86,19 @@ removeReminder(noteId:any){
       this.matSnackBar.open(response['message'], "Ok", { duration: 4000})
     }
   )
+}
+
+getCollaborators()
+{
+ this.userService.getCollaborators(this.note.noteId).subscribe(
+  (response:any)=>{
+    // this.matSnackBar.open(response['message'] , "ok" , {duration:4000});
+    this.collaborators = response['object'];
+    console.log("collaborators list:",this.collaborators);
+  },
+  (error:any)=> {
+      this.matSnackBar.open(error.error.message, "failed", {duration:5000});
+    }
+ ) 
 }
 }
