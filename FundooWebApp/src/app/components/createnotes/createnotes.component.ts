@@ -6,6 +6,7 @@ import { NoteService } from 'src/app/services/note.service';
 import {Note} from 'src/app/models/note.model';
 import { HttpResponse , HttpHeaders } from '@angular/common/http';
 import { ReminderComponent } from '../reminder/reminder.component';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-createnotes',
@@ -14,7 +15,15 @@ import { ReminderComponent } from '../reminder/reminder.component';
 })
 export class CreatenotesComponent implements OnInit {
 
-  constructor(private noteService:NoteService,private router:Router,private matSnackBar:MatSnackBar , private matDialog: MatDialog) { }
+  reminderDate:string;
+  datePipeString : string;
+  tommorrowDate:string;
+  setReminderDate:string;
+  newDate:any=null;
+
+  constructor(private noteService:NoteService,private router:Router,private matSnackBar:MatSnackBar , private matDialog: MatDialog ,private datePipe: DatePipe) {
+    this.datePipeString = datePipe.transform(Date.now(),'yyyy-MM-dd');
+   }
 
   noteModel:Note = new Note();
 
@@ -38,6 +47,8 @@ if(this.title.value&&this.description.value!=null)
 {
     this.noteModel.title = this.title.value;
     this.noteModel.description = this.description.value;
+    console.log("reminder to set:",this.newDate);
+    this.noteModel.reminder = this.newDate;
     this.noteService.createNote(this.noteModel).subscribe(
 
       (response:any)=>{
@@ -62,4 +73,32 @@ else{
     });
     
     }
+
+    today()
+{
+  let time:string="9:00";
+this.reminderDate = this.datePipeString+","+time+":00";
+this.newDate = new Date(this.reminderDate);
+console.log("Formated date:",this.newDate);
+
+
+}
+
+tommorrow()
+{
+  let time:string="9:00";
+  const cal = new Date();
+  cal.setDate(cal.getDate() + 1);
+  this.reminderDate =cal.getMonth() + 1 + '/' + cal.getDate() + '/' + cal.getFullYear();
+  this.tommorrowDate = this.datePipe.transform(this.reminderDate,'yyyy-MM-dd');
+  console.log("tommorrow date:",this.tommorrowDate);
+  this.setReminderDate = this.tommorrowDate+","+time+":00";
+
+
+  // this.reminderDate = cal.getFullYear() + ':' + cal.getMonth() + ':' + cal.getDate();
+  console.log("set date:",this.setReminderDate);
+  this.newDate = new Date(this.setReminderDate);
+console.log("Formated date:",this.newDate);
+
+}
 }

@@ -35,11 +35,11 @@
       Reminder:
     </div>
 
-    <button class="matmenu" mat-menu-item>Later today
+    <button class="matmenu" mat-menu-item (click)="today()">Later today
       <span style="margin-left: 100px;">08:00 PM</span>
     </button>
 
-    <button class="matmenu" mat-menu-item>Tomorrow
+    <button class="matmenu" mat-menu-item (click)="tommorrow()">Tomorrow
       <span style="margin-left: 110px;">08:00 AM</span>
     </button>
 
@@ -47,7 +47,7 @@
       <span style="margin-left: 75px;">Mon, 08:00 AM</span>
     </button>
 
-    <button class="matmenu" mat-menu-item (click)="datePicker()">
+    <button class="matmenu" mat-menu-item>
       <mat-icon style="font-size: 18px; margin: 1px;">access_time</mat-icon>
       <span>Pick date & time</span>
     </button>

@@ -36,7 +36,7 @@
               <mat-card-content class="content" id="remainder-box">
                 <mat-chip
                   class="textArea"
-                  >{{ note.reminder }}
+                  >{{ displayReminder }}
                   <mat-icon matChipRemove (click)="removeReminder(note.noteId)" matTooltip="remove">cancel</mat-icon></mat-chip
                 >
               </mat-card-content>
